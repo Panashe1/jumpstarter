@@ -21,10 +21,21 @@ export interface NavItem {
     isActive?: boolean;
 }
 
+export type OrganizationRole = 'owner' | 'admin' | 'member';
+
+export interface Organization {
+    id: number;
+    name: string;
+    slug: string;
+    role: OrganizationRole;
+}
+
 export interface SharedData {
     name: string;
     quote: { message: string; author: string };
     auth: Auth;
+    organizations: Organization[];
+    currentOrganization: Organization | null;
     [key: string]: unknown;
 }
 
